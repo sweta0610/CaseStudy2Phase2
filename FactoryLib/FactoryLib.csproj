@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3233EF43-BA2C-4B35-BDD4-301A60CAE076}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FactoryLib</RootNamespace>
+    <AssemblyName>FactoryLib</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SwaggerWcf, Version=0.2.15.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SwaggerWcf.0.2.15\lib\net45\SwaggerWcf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Factory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessContractLib\DataAccessContractLib.csproj">
+      <Project>{F40713E6-C5C6-430F-A55E-2DDB24E61CE2}</Project>
+      <Name>DataAccessContractLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessLib\DataAccessLib.csproj">
+      <Project>{831DF259-BC5A-42E5-9BCE-4CD81081D6E5}</Project>
+      <Name>DataAccessLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EnablePatientVitalSignsContractLib\VitalSignContractLib.csproj">
+      <Project>{d30fb424-628a-41fa-8996-1a339e805e42}</Project>
+      <Name>VitalSignContractLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EnableVitalSignContractLib\EnableVitalSignContractLib.csproj">
+      <Project>{C2B2FFB7-F12B-42BC-83B0-2BF26A46C976}</Project>
+      <Name>EnableVitalSignContractLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EnableVitalSignLib\EnableVitalSignLib.csproj">
+      <Project>{0359688A-AC90-442B-A5A4-873E91DE0AB5}</Project>
+      <Name>EnableVitalSignLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GeneratePatientVitalSignContractLib\GeneratePatientVitalSignContractLib.csproj">
+      <Project>{cb8d2f1f-4486-41c8-b496-126608ecd85b}</Project>
+      <Name>GeneratePatientVitalSignContractLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JsonPatientVitalSignParserContractLib\JsonPatientVitalSignParserContractLib.csproj">
+      <Project>{79F67790-56DD-4B4F-92EC-279A1056DD5F}</Project>
+      <Name>JsonPatientVitalSignParserContractLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JsonPatientVitalSignParserLib\JsonPatientVitalSignParserLib.csproj">
+      <Project>{86731570-6C36-4F7A-AB83-BC1F6299E43B}</Project>
+      <Name>JsonPatientVitalSignParserLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PatientMonitorContractLib\PatientMonitorContractLib.csproj">
+      <Project>{FB3F57FE-EF5E-4C8C-A75F-397651C8E2AD}</Project>
+      <Name>PatientMonitorContractLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PatientMonitorLib\PatientMonitorLib.csproj">
+      <Project>{83AC438B-3593-4FC2-A831-BB0B9119D922}</Project>
+      <Name>PatientMonitorLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PatientPulserateGeneratorLib\PatientPulserateGeneratorLib.csproj">
+      <Project>{3623f843-4b29-4613-b762-194f2bce4a1a}</Project>
+      <Name>PatientPulserateGeneratorLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PatientSpo2GeneratorLib\PatientSpo2GeneratorLib.csproj">
+      <Project>{f0471ab6-c16f-4f9e-a0ab-88ff974be3d4}</Project>
+      <Name>PatientSpo2GeneratorLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PatientTemperatureGeneratorLib\PatientTemperatureGeneratorLib.csproj">
+      <Project>{9538fdee-3e9e-486f-b4de-86a75061f353}</Project>
+      <Name>PatientTemperatureGeneratorLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PatientVitalSignReaderContractLib\PatientVitalSignReaderContractLib.csproj">
+      <Project>{5F57A493-CA10-43D2-8AE5-2EA45E590899}</Project>
+      <Name>PatientVitalSignReaderContractLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PatientVitalSignReaderLib\PatientVitalSignReaderLib.csproj">
+      <Project>{AED2419B-7B57-4AA1-8B47-E2036D926A48}</Project>
+      <Name>PatientVitalSignReaderLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PatientVitalSignWriterContractLib\PatientVitalSignWriterContractLib.csproj">
+      <Project>{4EE1C262-246F-4E00-BC9E-871F6E17ECE8}</Project>
+      <Name>PatientVitalSignWriterContractLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PatientVitalSignWriterLib\PatientVitalSignWriterLib.csproj">
+      <Project>{0AC959AF-486D-41DB-B551-3313848A01E7}</Project>
+      <Name>PatientVitalSignWriterLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ValidatePatientPulseRateLib\ValidatePatientPulseRateLib.csproj">
+      <Project>{D4D2493D-3125-4A3E-BE1C-9D467D01B053}</Project>
+      <Name>ValidatePatientPulseRateLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ValidatePatientSpo2Lib\ValidatePatientSpo2Lib.csproj">
+      <Project>{62380424-2B7F-4A09-8F90-CDCB623A4478}</Project>
+      <Name>ValidatePatientSpo2Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ValidatePatientTemperatureLib\ValidatePatientTemperatureLib.csproj">
+      <Project>{D90B74F6-67C4-4814-85E8-2C98FEEBA868}</Project>
+      <Name>ValidatePatientTemperatureLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ValidatePatientVitalSignContractLib\ValidatePatientVitalSignContractLib.csproj">
+      <Project>{BEB070BD-D818-43A6-B52F-D983E89E885A}</Project>
+      <Name>ValidatePatientVitalSignContractLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VitalSignLib\VitalSignLib.csproj">
+      <Project>{b40140ad-e904-4c03-9f10-3de526bbceaa}</Project>
+      <Name>VitalSignLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Swagger4WCF.1.0.2\build\Swagger4WCF.targets" Condition="Exists('..\packages\Swagger4WCF.1.0.2\build\Swagger4WCF.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Swagger4WCF.1.0.2\build\Swagger4WCF.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Swagger4WCF.1.0.2\build\Swagger4WCF.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

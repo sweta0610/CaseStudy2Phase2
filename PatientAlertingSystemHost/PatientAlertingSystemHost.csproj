@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D4E0B900-586A-4B84-B88D-4BC1735D142F}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PatientAlertingSystemHost</RootNamespace>
+    <AssemblyName>PatientAlertingSystemHost</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SwaggerWcf, Version=0.2.15.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SwaggerWcf.0.2.15\lib\net45\SwaggerWcf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AlertingSystemControllerContractLib\AlertingSystemControllerContractLib.csproj">
+      <Project>{8c092b83-97e0-4df8-9cf0-22dbcfc22b6a}</Project>
+      <Name>AlertingSystemControllerContractLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlertingSystemControllerLib\AlertingSystemControllerLib.csproj">
+      <Project>{7ba09f25-cc1a-4ad5-b13d-a6f890e29fff}</Project>
+      <Name>AlertingSystemControllerLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataStoreControllerContractLib\DataStoreControllerContractLib.csproj">
+      <Project>{561f26b5-eea4-4ba5-be4f-69b8333e2acc}</Project>
+      <Name>DataStoreControllerContractLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataStoreControllerLib\DataStoreControllerLib.csproj">
+      <Project>{de3210f0-406d-4d3d-8724-ca057c86e367}</Project>
+      <Name>DataStoreControllerLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JsonPatientVitalSignParserContractLib\JsonPatientVitalSignParserContractLib.csproj">
+      <Project>{79f67790-56dd-4b4f-92ec-279a1056dd5f}</Project>
+      <Name>JsonPatientVitalSignParserContractLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JsonPatientVitalSignParserLib\JsonPatientVitalSignParserLib.csproj">
+      <Project>{86731570-6c36-4f7a-ab83-bc1f6299e43b}</Project>
+      <Name>JsonPatientVitalSignParserLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JsonVitalSignParserControllerContractLib\JsonVitalSignParserControllerContractLib.csproj">
+      <Project>{48c97e09-e0fd-449e-9385-c741e6cbe636}</Project>
+      <Name>JsonVitalSignParserControllerContractLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PatientMonitorControllerContractLib\PatientMonitorControllerContractLib.csproj">
+      <Project>{a01bf447-7604-4785-aa1e-acec9022ef83}</Project>
+      <Name>PatientMonitorControllerContractLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PatientMonitorControllerLib\PatientMonitorControllerLib.csproj">
+      <Project>{3cf29ac9-f06d-4b22-a6c9-e4d4d7e1cf30}</Project>
+      <Name>PatientMonitorControllerLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PatientRegistration\PatientDbQueryControllerContractLib\PatientDbQueryControllerContractLib.csproj">
+      <Project>{589f7672-dd7c-412b-a7fc-da7e891f9add}</Project>
+      <Name>PatientDbQueryControllerContractLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Swagger4WCF.1.0.2\build\Swagger4WCF.targets" Condition="Exists('..\packages\Swagger4WCF.1.0.2\build\Swagger4WCF.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Swagger4WCF.1.0.2\build\Swagger4WCF.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Swagger4WCF.1.0.2\build\Swagger4WCF.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
