@@ -12,6 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using DBManagerLib;
 using System.Data.Common;
+using System.Runtime.Serialization;
+using DataContractsLib;
 
 namespace PatientDBQuery
 {
@@ -67,9 +69,9 @@ namespace PatientDBQuery
             return isPatientExist;
         }
 
-        public static string GetPatientDetails(int patientID)
+        public static PatientDetails GetPatientDetails(int patientID)
         {
-            string details = string.Empty;
+            PatientDetails details = new PatientDetails();
             if(SearchPatientByPatientId(patientID))
             {
                 string Query = "SELECT * FROM PatientData WHERE PatientID=" + patientID;
@@ -84,7 +86,12 @@ namespace PatientDBQuery
                 {
                     while (dataReader.Read())
                     {
-                        details = dataReader["PatientName"].ToString() + ";" + dataReader["PatientGender"].ToString() + ";" + dataReader["PatientAge"].ToString() + ";" + dataReader["ContactNumber"].ToString();
+                        //details = dataReader["PatientName"].ToString() + ";" + dataReader["PatientGender"].ToString() + ";" + dataReader["PatientAge"].ToString() + ";" + dataReader["ContactNumber"].ToString();
+                        details.PatientName = dataReader["PatientName"].ToString();
+                        details.PatientGender = dataReader["PatientGender"].ToString();
+                        details.PatientAge = int.Parse(dataReader["PatientAge"].ToString());
+                        details.PatientContact = long.Parse(dataReader["ContactNumber"].ToString());
+                        details.PatientID = patientID;
                     }
                 }
 

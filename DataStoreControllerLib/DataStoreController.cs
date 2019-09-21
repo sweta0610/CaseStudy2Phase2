@@ -12,6 +12,7 @@ using System;
 using PatientDBQuery;
 using FactoryLib;
 using PatientVitalSignWriterContractLib;
+using DataContractsLib;
 
 namespace DataStoreControllerLib
 {
@@ -92,7 +93,7 @@ namespace DataStoreControllerLib
         {
             return PatientQuery.SearchPatientByPatientId(patientId);
         }
-        public string GetPatientDetails(int patientId)     //new
+        public PatientDetails GetPatientDetails(int patientId)     //new
         {
             return PatientQuery.GetPatientDetails(patientId);
         }
