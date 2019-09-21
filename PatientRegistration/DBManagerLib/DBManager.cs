@@ -13,7 +13,7 @@ namespace DBManagerLib
     public class DBManager
     {
         const string startPoint = "System.Data.SqlClient";
-        const string connectionString = @"Data Source=.\;Initial Catalog=HospitalDB;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework";
+        const string connectionString = @"Data Source=ingbtcpic5nbxrv\sqlexpress;Initial Catalog=HospitalDB;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework";
         DbConnection connection = null;
 
         //opens DB connection

@@ -67,6 +67,32 @@ namespace PatientDBQuery
             return isPatientExist;
         }
 
+        public static string GetPatientDetails(int patientID)
+        {
+            string details = string.Empty;
+            if(SearchPatientByPatientId(patientID))
+            {
+                string Query = "SELECT * FROM PatientData WHERE PatientID=" + patientID;
+
+                DBManager dbManager = new DBManager();
+
+                dbManager.OpenDBConnection();
+
+                DbCommand command = dbManager.CreateDBCommand(Query);
+
+                using (DbDataReader dataReader = dbManager.ExecuteCommand(command))
+                {
+                    while (dataReader.Read())
+                    {
+                        details = dataReader["PatientName"].ToString() + ";" + dataReader["PatientGender"].ToString() + ";" + dataReader["PatientAge"].ToString() + ";" + dataReader["ContactNumber"].ToString();
+                    }
+                }
+
+                dbManager.CloseDBConnection();
+            }
+            return details;
+        }
+
         //this function checks whether contactNo exists or not
         public static bool IsContactNumberExists(long contactNumber)
         {
@@ -117,7 +143,6 @@ namespace PatientDBQuery
                     isPatientAllocated = true;
                 }
             }
-
 
             dbManager.CloseDBConnection();
             return isPatientAllocated;

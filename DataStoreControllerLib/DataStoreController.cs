@@ -26,7 +26,6 @@ namespace DataStoreControllerLib
         public DataStoreController()
         {
             m_patientVitalWriter = Factory.GetVitalSignWriter();
-
         }
 
         public bool AllocateResourceToPatient(long contactNumber, int patientId, string doctorName, string category, string disease, int wardNumber, int bedNumber, string indate, long emergencyContactNumber, string outdate, bool status)
@@ -84,14 +83,18 @@ namespace DataStoreControllerLib
             return PatientQuery.RegisterPatient(contactNumber, patientName, patientGender, PatientAge);
         }
 
-        public string SearchPatientByContact(long contactNumber)
+        public string SearchPatientByContact(long contactNumber)    //GetPatientId
         {
             return PatientQuery.SearchPatientByContact(contactNumber);
         }
 
-        public bool SearchPatientByPatientId(int patientId)
+        public bool SearchPatientByPatientId(int patientId)     //IsPatientExists
         {
             return PatientQuery.SearchPatientByPatientId(patientId);
+        }
+        public string GetPatientDetails(int patientId)     //new
+        {
+            return PatientQuery.GetPatientDetails(patientId);
         }
 
         public void StorePatientVitalSigns(string patientId, string m_jsonData)

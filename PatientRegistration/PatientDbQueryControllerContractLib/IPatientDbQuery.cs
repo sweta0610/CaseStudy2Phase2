@@ -15,6 +15,8 @@ namespace PatientDbQueryControllerContractLib
         [OperationContract]
         bool SearchPatientByPatientId(int patientId);
         [OperationContract]
+        string GetPatientDetails(int patientId);
+        [OperationContract]
         bool IsContactNumberExists(long contactNumber);
         [OperationContract]
         string RegisterPatient(long contactNumber, string patientName, string patientGender, double PatientAge);

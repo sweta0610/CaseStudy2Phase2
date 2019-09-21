@@ -41,6 +41,7 @@ namespace AlertingSystemControllerLib
             m_parser = Factory.GetParser();
             m_dataAccess = Factory.GetDataAccess();
         }
+
         public string ReadPatientVitalSigns(string patientId)
         {
             return m_reader.ReadPatientVitalSigns(patientId);
