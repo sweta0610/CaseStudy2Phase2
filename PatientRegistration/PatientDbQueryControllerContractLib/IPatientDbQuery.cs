@@ -17,6 +17,14 @@ namespace PatientDbQueryControllerContractLib
         [OperationContract]
         DataContractsLib.PatientDetails GetPatientDetails(int patientId);
         [OperationContract]
+        bool UpdatePatientDetails(int patientId, string patientName, string patientGender, int PatientAge, long contactNumber);
+        [OperationContract]
+        int GetTotalNoOfBeds();
+        [OperationContract]
+        int GetTotalNoOfWards();
+        [OperationContract]
+        int GetNoOfAvailableBeds();
+        [OperationContract]
         bool IsContactNumberExists(long contactNumber);
         [OperationContract]
         string RegisterPatient(long contactNumber, string patientName, string patientGender, double PatientAge);

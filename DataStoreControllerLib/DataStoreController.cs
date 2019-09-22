@@ -97,6 +97,22 @@ namespace DataStoreControllerLib
         {
             return PatientQuery.GetPatientDetails(patientId);
         }
+        public bool UpdatePatientDetails(int patientId, string patientName, string patientGender, int PatientAge, long contactNumber)                                            //new
+        {
+            return PatientQuery.UpdatePatientDetails(patientId,patientName,patientGender,PatientAge,contactNumber);
+        }
+        public int GetTotalNoOfBeds()     //new
+        {
+            return PatientQuery.GetTotalNoOfBeds();
+        }
+        public int GetTotalNoOfWards()     //new
+        {
+            return PatientQuery.GetTotalNoOfWards();
+        }
+        public int GetNoOfAvailableBeds()     //new
+        {
+            return PatientQuery.GetNoOfAvailableBeds();
+        }
 
         public void StorePatientVitalSigns(string patientId, string m_jsonData)
         {

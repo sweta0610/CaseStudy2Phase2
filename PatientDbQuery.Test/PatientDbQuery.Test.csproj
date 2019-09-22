@@ -64,6 +64,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataContractsLib\DataContractsLib.csproj">
+      <Project>{D1035962-FDCE-4193-A2F4-5B9894103408}</Project>
+      <Name>DataContractsLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataStoreControllerContractLib\DataStoreControllerContractLib.csproj">
       <Project>{561f26b5-eea4-4ba5-be4f-69b8333e2acc}</Project>
       <Name>DataStoreControllerContractLib</Name>

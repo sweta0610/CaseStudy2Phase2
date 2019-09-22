@@ -69,7 +69,7 @@ namespace PatientDBQuery
             return isPatientExist;
         }
 
-        public static PatientDetails GetPatientDetails(int patientID)
+        public static PatientDetails GetPatientDetails(int patientID)       //new
         {
             PatientDetails details = new PatientDetails();
             if(SearchPatientByPatientId(patientID))
@@ -86,7 +86,6 @@ namespace PatientDBQuery
                 {
                     while (dataReader.Read())
                     {
-                        //details = dataReader["PatientName"].ToString() + ";" + dataReader["PatientGender"].ToString() + ";" + dataReader["PatientAge"].ToString() + ";" + dataReader["ContactNumber"].ToString();
                         details.PatientName = dataReader["PatientName"].ToString();
                         details.PatientGender = dataReader["PatientGender"].ToString();
                         details.PatientAge = int.Parse(dataReader["PatientAge"].ToString());
@@ -98,6 +97,101 @@ namespace PatientDBQuery
                 dbManager.CloseDBConnection();
             }
             return details;
+        }
+
+        public static bool UpdatePatientDetails(int patientID,string patientName, string patientGender, int PatientAge, long contactNumber)
+        {
+            if (!SearchPatientByPatientId(patientID))
+                return false;
+
+            string Query = "UPDATE PatientData SET PatientName='"+patientName+"', PatientGender='"+patientGender+ "', PatientAge='"+PatientAge+ "', ContactNumber='"+contactNumber+"' WHERE PatientID=" + patientID;
+
+            DBManager dbManager = new DBManager();
+
+            dbManager.OpenDBConnection();
+
+            DbCommand command = dbManager.CreateDBCommand(Query);
+
+            dbManager.ExecuteCommand(command);
+
+            dbManager.CloseDBConnection();
+
+            return true;
+        }
+
+        public static int GetTotalNoOfBeds()      //new
+        {
+            int NoOfBeds = 0;
+
+            string Query = "SELECT * FROM BedData";
+
+            DBManager dbManager = new DBManager();
+
+            dbManager.OpenDBConnection();
+
+            DbCommand command = dbManager.CreateDBCommand(Query);
+
+            using (DbDataReader dataReader = dbManager.ExecuteCommand(command))
+            {
+                while (dataReader.Read())
+                {
+                    NoOfBeds++;
+                }
+            }
+
+            dbManager.CloseDBConnection();
+
+            return NoOfBeds;
+        }
+
+        public static int GetTotalNoOfWards()      //new
+        {
+            int NoOfWards = 0;
+
+            string Query = "SELECT * FROM WardData";
+
+            DBManager dbManager = new DBManager();
+
+            dbManager.OpenDBConnection();
+
+            DbCommand command = dbManager.CreateDBCommand(Query);
+
+            using (DbDataReader dataReader = dbManager.ExecuteCommand(command))
+            {
+                while (dataReader.Read())
+                {
+                    NoOfWards++;
+                }
+            }
+
+            dbManager.CloseDBConnection();
+
+            return NoOfWards;
+        }
+
+        public static int GetNoOfAvailableBeds()      //new
+        {
+            int NoOfAvailableBeds = 0;
+
+            string Query = "SELECT * FROM BedData WHERE Availability ="+1;
+
+            DBManager dbManager = new DBManager();
+
+            dbManager.OpenDBConnection();
+
+            DbCommand command = dbManager.CreateDBCommand(Query);
+
+            using (DbDataReader dataReader = dbManager.ExecuteCommand(command))
+            {
+                while (dataReader.Read())
+                {
+                    NoOfAvailableBeds++;
+                }
+            }
+
+            dbManager.CloseDBConnection();
+
+            return NoOfAvailableBeds;
         }
 
         //this function checks whether contactNo exists or not
