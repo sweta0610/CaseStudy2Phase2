@@ -205,7 +205,7 @@ namespace PatientDBQuery
         }
 
         //adds entry patient details to the PatientData table 
-        public static string RegisterPatient(long contactNumber, string patientName, string patientGender, double PatientAge)
+        public static string RegisterPatient(long contactNumber, string patientName, string patientGender, int PatientAge)
         {
             string patientId = string.Empty;
             if (!IsContactNumberExists(contactNumber))

@@ -79,7 +79,7 @@ namespace DataStoreControllerLib
             return PatientQuery.IsWardExist(wardnumber);
         }
 
-        public string RegisterPatient(long contactNumber, string patientName, string patientGender, double PatientAge)
+        public string RegisterPatient(long contactNumber, string patientName, string patientGender, int PatientAge)
         {
             return PatientQuery.RegisterPatient(contactNumber, patientName, patientGender, PatientAge);
         }
