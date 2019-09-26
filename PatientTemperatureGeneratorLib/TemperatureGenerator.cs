@@ -29,7 +29,7 @@ namespace PatientTemperatureGeneratorLib
         public double PatientVitalSignGenerator(string patientId)
         {
             double m_vitalSignValue = 0;
-            m_vitalSignValue = RandomizeDouble(97, 99);
+            m_vitalSignValue = RandomizeDouble(96, 101);
             return m_vitalSignValue;
         }
     }

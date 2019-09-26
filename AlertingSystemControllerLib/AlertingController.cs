@@ -70,11 +70,13 @@ namespace AlertingSystemControllerLib
 
             foreach (IValidateVitalSign vitalSignValidator in m_lstValidateVitalSign)
             {
-                int index = GetIndexForVitalSign(lstEnabledVitalSign, vitalSignValidator.VitalSignType);
-                if (!ValidateVitalSign(index, vitalSignValidator, parsedJsonData, patientId, out alertMessage))
+                int index = 1 + GetIndexForVitalSign(lstEnabledVitalSign, vitalSignValidator.VitalSignType);
+                string tempAlertMessage;
+                if (!ValidateVitalSign(index, vitalSignValidator, parsedJsonData, patientId, out tempAlertMessage))
                 {
                     bValidateResult = false;
-                    break;
+                    //break;
+                    alertMessage += tempAlertMessage + "\n";
                 }
             }
             return bValidateResult;

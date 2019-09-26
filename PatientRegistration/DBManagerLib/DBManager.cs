@@ -51,7 +51,7 @@ namespace DBManagerLib
                 return null;
             }
             command.Connection = connection;
-            command.CommandText = commandText;
+            command.CommandText = commandText+";";
 
             return command;
         }

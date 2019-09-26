@@ -84,12 +84,16 @@ namespace DataStoreControllerLib
             return PatientQuery.RegisterPatient(contactNumber, patientName, patientGender, PatientAge);
         }
 
-        public string SearchPatientByContact(long contactNumber)    //GetPatientId
+        public int GetAdmittedPatientID(int BedNumber)    //GetPatientId
+        {
+            return PatientQuery.GetAdmittedPatientID(BedNumber);
+        }
+        public string GetPatientID(long contactNumber)    //GetPatientId
         {
             return PatientQuery.SearchPatientByContact(contactNumber);
         }
 
-        public bool SearchPatientByPatientId(int patientId)     //IsPatientExists
+        public bool IsPatientExists(int patientId)     //IsPatientExists
         {
             return PatientQuery.SearchPatientByPatientId(patientId);
         }

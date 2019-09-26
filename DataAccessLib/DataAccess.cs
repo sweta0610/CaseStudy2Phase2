@@ -23,7 +23,14 @@ namespace DataAccessLib
                 DataStore.dictPatientVitalSignEnabledMap.Remove(patientId);
             }
             //Store the list of enabled/disabled vital sign for patientId in dataStorage.
-            DataStore.dictPatientVitalSignEnabledMap.Add(patientId, m_vitalSigns);
+
+            List<VitalSign> enabledList = new List<VitalSign>();    //new
+            foreach(var item in m_vitalSigns)
+            {
+                if (item.IsPatientVitalSignEnabled == true)
+                    enabledList.Add(item);
+            }
+            DataStore.dictPatientVitalSignEnabledMap.Add(patientId, enabledList);
         }
 
         public string ReadPatientVitalSigns(string patientId)

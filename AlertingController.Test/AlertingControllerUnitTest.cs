@@ -58,11 +58,12 @@ namespace AlertingController.Test
         }
         [TestMethod]
         public void Given_Valid_Json_string_ValidatePatientVitalSigns_Invoke_Then_Validate_Result_Asserted()
-        {
+        {            
             AlertingSystemControllerLib.AlertingController m_validate = new AlertingSystemControllerLib.AlertingController();
             string alertMessage;
-            bool m_actual = m_validate.ValidatePatientVitalSigns("1", "{ patientId: 1, SPO2: 95, Temperature: 97, PulseRate: 67}",out alertMessage);
+            bool m_actual = m_validate.ValidatePatientVitalSigns("587", "{ patientId: 1, SPO2: 98, Temperature: 100, PulseRate: 101}", out alertMessage);
             Assert.AreEqual(false, m_actual);
+            //{ patientId: 1, SPO2: 98, Temperature: 100, PulseRate: 101}
         }
 
 

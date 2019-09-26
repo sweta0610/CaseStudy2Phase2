@@ -11,9 +11,11 @@ namespace PatientDbQueryControllerContractLib
     public interface IPatientDbQuery
     {
         [OperationContract]
-        string SearchPatientByContact(long contactNumber);
+        int GetAdmittedPatientID(int bedNumber);
         [OperationContract]
-        bool SearchPatientByPatientId(int patientId);
+        string GetPatientID(long contactNumber);
+        [OperationContract]
+        bool IsPatientExists(int patientId);
         [OperationContract]
         DataContractsLib.PatientDetails GetPatientDetails(int patientId);
         [OperationContract]

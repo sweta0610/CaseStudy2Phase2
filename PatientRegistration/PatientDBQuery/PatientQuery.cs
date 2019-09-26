@@ -99,6 +99,32 @@ namespace PatientDBQuery
             return details;
         }
 
+        public static int GetAdmittedPatientID(int bedNumber)
+        {
+            int patientID=0;
+            if (!IsBedAvailable(bedNumber))
+            {
+                string Query = "SELECT * FROM PatientResourceAllocationData WHERE BedNumber=" + bedNumber;
+
+                DBManager dbManager = new DBManager();
+
+                dbManager.OpenDBConnection();
+
+                DbCommand command = dbManager.CreateDBCommand(Query);
+
+                using (DbDataReader dataReader = dbManager.ExecuteCommand(command))
+                {
+                    while (dataReader.Read())
+                    {
+                        patientID = int.Parse(dataReader["PatientID"].ToString());
+                    }
+                }
+
+                dbManager.CloseDBConnection();
+            }
+            return patientID;
+        }
+
         public static bool UpdatePatientDetails(int patientID,string patientName, string patientGender, int PatientAge, long contactNumber)
         {
             if (!SearchPatientByPatientId(patientID))

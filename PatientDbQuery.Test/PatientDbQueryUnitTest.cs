@@ -27,7 +27,7 @@ namespace PatientDBQuery.Test
         public void Given_Valid_ContactNumber_When_SearchPatientByContact_Is_Invoked_Then_Validate_Result()
         {
             string patientId = patientDBQueryController.RegisterPatient(9663675749, "Ashritha", "Female", 23);
-            string actualValue = patientDBQueryController.SearchPatientByContact(9663675749);
+            string actualValue = patientDBQueryController.GetPatientID(9663675749);
             string expectedValue = patientId;
             Assert.AreEqual(expectedValue, actualValue);
         }
@@ -35,7 +35,7 @@ namespace PatientDBQuery.Test
         public void Given_Valid_PatientID_When_SearchPatientByID_Is_Invoked__Then_Validate_Result()
         {
             string patientId = patientDBQueryController.RegisterPatient(9663629949, "Ashrit", "Female", 23);
-            bool actualValue = patientDBQueryController.SearchPatientByPatientId(int.Parse(patientId));
+            bool actualValue = patientDBQueryController.IsPatientExists(int.Parse(patientId));
             bool expectedValue = true;
             Assert.AreEqual(expectedValue, actualValue);
         }
@@ -51,7 +51,7 @@ namespace PatientDBQuery.Test
         public void Given_Valid_PatientData_When_RegisterPatient_Is_Invoked_Then_Validate_Result()
         {
            string actualValue = patientDBQueryController.RegisterPatient(9663625744,"ash","female",22);
-           string expectedValue = patientDBQueryController.SearchPatientByContact(9663625744);
+           string expectedValue = patientDBQueryController.GetPatientID(9663625744);
             Assert.AreEqual(expectedValue, actualValue);
         }
         [TestMethod]
